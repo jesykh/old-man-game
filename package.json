@@ -1,0 +1,25 @@
+{
+  "name": "old-man",
+  "description": "Platform game about an old mercanery in the cyberpunk future.",
+  "version": "0.0.0",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "author": {
+    "name": "Jan Wisniowolski, Zofia Wisniowolska",
+    "email": "wisniowolski.jan@gmail.com",
+    "url": "https://github.com/jesykh/old-man-game"
+  },
+  "licenses": [
+  ],
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-requirejs": "*",
+    "grunt-contrib-connect": "*"
+  }
+}

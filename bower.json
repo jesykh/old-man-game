@@ -1,0 +1,6 @@
+{
+  "name": "old-man",
+  "dependencies": {
+    "requirejs": "~2.1.5"
+  }
+}
