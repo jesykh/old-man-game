@@ -1,6 +1,7 @@
 {
   "name": "old-man",
   "dependencies": {
-    "requirejs": "~2.1.5"
+    "requirejs": "~2.1.5",
+    "q": "~1.0.1"
   }
 }
