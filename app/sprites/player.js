@@ -4,11 +4,12 @@ define(['q'], function(Q) {
       this._super(p, {
         sheet: 'player'
       });
+      this.add('2d, platformerControls');
     }
   });
   Q.load(["player_sheet.png"], function() {
     Q.sheet("player","player_sheet.png", {
-      tilew: 30, tileh: 42
+      tilew: 30, tileh: 24
     });
   });
 

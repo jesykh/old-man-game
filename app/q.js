@@ -3,7 +3,8 @@ define(['quintus'], function(quintus) {
     .include("Sprites, Scenes, Input, 2D, UI")
     .setup({
       maximize: true
-    });
+    })
+    .controls();
 
   return Q;
 });
