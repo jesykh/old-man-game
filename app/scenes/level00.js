@@ -1,33 +1,39 @@
 define([
-  'q', 'sprites/player', 'assets/loader', 'assets/floor'
+  'q',
+  'sprites/player',
+  'assets/loader',
+  'assets/floor',
+  'assets/data/level00_tile_scheme',
+  'promise'
 ], function(
-  Q, Player, AssetsLoader, FloorSheet
+  Q, Player, AssetsLoader, FloorSheet, TileScheme, Promise
 ) {
   var STAGE_NAME = 'level00';
-  var TILE_SCHEME_FILENAME = 'level00.json';
 
-  function setCollisionLayerOnStage(stage) {
+  function setCollisionLayer() {
     var tileLayer = new Q.TileLayer({
-      dataAsset: TILE_SCHEME_FILENAME,
+      dataAsset: TileScheme.getFilename(),
       sheet: FloorSheet.getName()
     });
-    stage.collisionLayer(tileLayer);
+    this.collisionLayer(tileLayer);
   }
 
-  function setPlayerOnStage(stage) {
-    var player = stage.insert(new Player({x: 410, y: 90}));
-    stage.add("viewport").follow(player);
+  function setPlayer(stage) {
+    var player = this.insert(new Player({x: 410, y: 90}));
+    this.add("viewport").follow(player);
   }
 
   Q.scene(STAGE_NAME, function(stage) {
-    setCollisionLayerOnStage(stage);
-    setPlayerOnStage(stage);
+    setCollisionLayer.call(stage);
+    setPlayer.call(stage);
   });
 
   return {
     stageLevel: function() {
-      AssetsLoader.then(function() {
-        FloorSheet.setup();
+      Promise.all([
+        TileScheme.waitForLoaded(),
+        FloorSheet.waitForLoaded()
+      ]).then(function() {
         Q.stageScene(STAGE_NAME);
       });
     }

@@ -5,14 +5,19 @@ define(['q', 'assets/loader'], function(Q, AssetsLoader) {
     tilew: 32, tileh: 32
   };
 
+  var waitForLoaded = function waitForLoaded() {
+    return AssetsLoader.waitForLoaded(ASSET_FILENAME);
+  }
+
+  waitForLoaded().then(function() {
+    Q.sheet(SHEET_NAME, ASSET_FILENAME, ASSET_PROPERTIES);
+  });
+
+
   return {
     getName: function() {
       return SHEET_NAME;
     },
-    setup: function() {
-      AssetsLoader.then(function() {
-        Q.sheet(SHEET_NAME, ASSET_FILENAME, ASSET_PROPERTIES);
-      });
-    }
+    waitForLoaded: waitForLoaded
   };
 });
