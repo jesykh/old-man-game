@@ -1,25 +1,30 @@
 define([
   'q',
   'sprites/player',
-  'assets/loader',
-  'assets/floor',
-  'assets/data/level00_tile_scheme',
+  'scenes/level00/asset_loader',
+  'scenes/level00/tile_layer_provider',
   'promise'
 ], function(
-  Q, Player, AssetsLoader, FloorSheet, TileScheme, Promise
+  Q,
+  Player,
+  AssetsLoader,
+  TileLayerProvider,
+  Promise
 ) {
   var STAGE_NAME = 'level00';
 
+  function waitForAllAssets() {
+    return AssetsLoader.waitForLevelAssets();
+  }
+
   function setCollisionLayer() {
-    var tileLayer = new Q.TileLayer({
-      dataAsset: TileScheme.getFilename(),
-      sheet: FloorSheet.getName()
-    });
+    var tileLayer = TileLayerProvider.create();
     this.collisionLayer(tileLayer);
   }
 
   function setPlayer(stage) {
-    var player = this.insert(new Player({x: 410, y: 90}));
+    var player = new Player({x: 410, y: 90});
+    this.insert(player);
     this.add("viewport").follow(player);
   }
 
@@ -30,10 +35,7 @@ define([
 
   return {
     stageLevel: function() {
-      Promise.all([
-        TileScheme.waitForLoaded(),
-        FloorSheet.waitForLoaded()
-      ]).then(function() {
+      waitForAllAssets().then(function() {
         Q.stageScene(STAGE_NAME);
       });
     }
