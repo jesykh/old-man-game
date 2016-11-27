@@ -15,5 +15,5 @@ define([
       });
       return tileLayer;
     }
-  }
+  };
 });

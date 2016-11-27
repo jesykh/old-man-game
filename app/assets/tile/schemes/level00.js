@@ -3,7 +3,7 @@ define(['q', 'assets/loader'], function(Q, AssetsLoader) {
 
   var waitForLoaded = function waitForLoaded() {
     return AssetsLoader.waitForLoaded(ASSET_FILENAME);
-  }
+  };
 
   return {
     getFilename: function() {

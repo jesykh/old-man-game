@@ -20,7 +20,7 @@ define([
     Q.sheet(ASSET_LABEL, ASSET_FILENAME, {
       tilew: 30, tileh: 24
     });
-  }
+  };
 
   AssetsLoader.waitForLoaded(ASSET_FILENAME).then(createSheet);
 

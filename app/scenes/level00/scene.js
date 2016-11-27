@@ -2,14 +2,12 @@ define([
   'q',
   'sprites/player',
   'scenes/level00/asset_loader',
-  'scenes/level00/tile_layer_provider',
-  'promise'
+  'scenes/level00/tile_layer_provider'
 ], function(
   Q,
   Player,
   AssetsLoader,
-  TileLayerProvider,
-  Promise
+  TileLayerProvider
 ) {
   var STAGE_NAME = 'level00';
 
@@ -22,7 +20,7 @@ define([
     this.collisionLayer(tileLayer);
   }
 
-  function setPlayer(stage) {
+  function setPlayer() {
     var player = new Player({x: 410, y: 90});
     this.insert(player);
     this.add("viewport").follow(player);

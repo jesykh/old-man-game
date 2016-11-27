@@ -7,7 +7,7 @@ define(['q', 'assets/loader'], function(Q, AssetsLoader) {
 
   var waitForLoaded = function waitForLoaded() {
     return AssetsLoader.waitForLoaded(ASSET_FILENAME);
-  }
+  };
 
   waitForLoaded().then(function() {
     Q.sheet(SHEET_NAME, ASSET_FILENAME, ASSET_PROPERTIES);

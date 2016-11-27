@@ -1,9 +1,11 @@
 define([
   'assets/tile/sprites/floor',
-  'assets/tile/schemes/level00'
+  'assets/tile/schemes/level00',
+  'promise'
 ], function(
   FloorSheet,
-  TileScheme
+  TileScheme,
+  Promise
 ) {
   function waitForLevelAssets() {
     return Promise.all([
@@ -14,5 +16,5 @@ define([
 
   return {
     waitForLevelAssets: waitForLevelAssets
-  }
+  };
 });
