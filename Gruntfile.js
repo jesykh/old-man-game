@@ -1,5 +1,7 @@
 'use strict';
 
+var serveStatic = require('serve-static');
+
 module.exports = function(grunt) {
 
   // Project configuration.
@@ -97,8 +99,7 @@ module.exports = function(grunt) {
                 }
                 next();
               },
-              connect.static(options.base),
-
+              serveStatic(options.base[0]),
             ];
           }
         }
