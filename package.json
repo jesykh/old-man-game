@@ -10,8 +10,7 @@
     "email": "wisniowolski.jan@gmail.com",
     "url": "https://github.com/jesykh/old-man-game"
   },
-  "licenses": [
-  ],
+  "licenses": [],
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-jshint": "*",
@@ -21,5 +20,8 @@
     "grunt-contrib-clean": "*",
     "grunt-contrib-requirejs": "*",
     "grunt-contrib-connect": "*"
+  },
+  "dependencies": {
+    "serve-static": "^1.11.1"
   }
 }
