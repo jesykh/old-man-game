@@ -22,7 +22,7 @@ define([
     });
   };
 
-  AssetsLoader.waitForLoaded(ASSET_FILENAME).then(createSheet);
+  AssetsLoader.waitUntilLoaded(ASSET_FILENAME).then(createSheet);
 
   return Q.Player;
 });

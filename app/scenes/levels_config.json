@@ -1,0 +1,24 @@
+{
+  "level00": {
+    "player": {
+      "properties": {
+        "x": 410,
+        "y": 90
+      }
+    },
+    "enemies": [
+      {
+        "type": "base_enemy",
+        "properties": {
+          "vx": 100,
+          "x": 420,
+          "y": 90
+        }
+      }
+    ],
+    "collisionLayer": {
+      "scheme": "level00",
+      "sprite": "floor"
+    }
+  }
+}

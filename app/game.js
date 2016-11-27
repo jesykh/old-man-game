@@ -1,9 +1,12 @@
 define([
   'q',
-  'scenes/level00/scene'
+  'scenes/scene',
+  'json!scenes/levels_config.json',
 ], function(
   Q,
-  Level00Scene
+  Level00Scene,
+  LevelsConfig
 ) {
-  Level00Scene.stageLevel();
+  var STAGE_NAME = 'level00';
+  Level00Scene.stageLevel(STAGE_NAME, LevelsConfig[STAGE_NAME]);
 });

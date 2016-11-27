@@ -2,6 +2,9 @@
   "name": "old-man",
   "dependencies": {
     "requirejs": "~2.1.5",
-    "q": "~1.0.1"
+    "q": "~1.0.1",
+    "requirejs-plugins": "^1.0.3",
+    "text": "requirejs-text#^2.0.15",
+    "lodash": "^4.17.2"
   }
 }

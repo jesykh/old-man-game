@@ -10,7 +10,7 @@ define(['q', 'promise'], function(Q, Promise) {
   var getPromiseFor = function getPromiseFor(assetFilename) {
     return promises[assetFilename];
   };
-  var waitForLoaded = function waitForLoaded(assetFilename) {
+  var waitUntilLoaded = function waitUntilLoaded(assetFilename) {
     if(!getPromiseFor(assetFilename)) {
       _scheduleLoading(assetFilename);
     }
@@ -18,6 +18,6 @@ define(['q', 'promise'], function(Q, Promise) {
   };
 
   return {
-    waitForLoaded: waitForLoaded
+    waitUntilLoaded: waitUntilLoaded
   };
 });
