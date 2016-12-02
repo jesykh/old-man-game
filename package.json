@@ -13,13 +13,14 @@
   "licenses": [],
   "devDependencies": {
     "grunt": "~0.4.1",
-    "grunt-contrib-jshint": "*",
+    "grunt-contrib-clean": "*",
     "grunt-contrib-concat": "*",
+    "grunt-contrib-connect": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-requirejs": "*",
     "grunt-contrib-uglify": "*",
     "grunt-contrib-watch": "*",
-    "grunt-contrib-clean": "*",
-    "grunt-contrib-requirejs": "*",
-    "grunt-contrib-connect": "*"
+    "grunt-mocha-require-phantom": "^0.8.0"
   },
   "dependencies": {
     "serve-static": "^1.11.1"

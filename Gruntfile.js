@@ -104,6 +104,16 @@ module.exports = function(grunt) {
           }
         }
       }
+    },
+    mocha_require_phantom: {
+      options: {
+        base: '.',
+        main: 'test/test_bootstrap',
+        requireLib: 'bower_components/requirejs/require.js',
+        files: ['test/**/*_spec.js'],
+        port: 9001
+      },
+      all: {}
     }
   });
 
@@ -115,9 +125,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-mocha-require-phantom');
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'clean', 'requirejs', 'concat', 'uglify']);
+  grunt.registerTask('test', ['mocha_require_phantom']);
+  grunt.registerTask('default', ['jshint', 'test', 'clean', 'requirejs', 'concat', 'uglify']);
   grunt.registerTask('preview', ['connect:development']);
   grunt.registerTask('preview-live', ['default', 'connect:production']);
 

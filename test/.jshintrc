@@ -1,6 +1,7 @@
 {
   "curly": true,
   "eqeqeq": true,
+  "expr": true,
   "immed": true,
   "latedef": true,
   "newcap": true,
@@ -13,6 +14,10 @@
   "browser": true,
   "predef": [
     "require",
+    "console",
+    "mocha",
+    "mochaPhantomJS",
+    "testPathname",
     "define",
     "module",
     "test",
@@ -28,5 +33,10 @@
     "strictEqual",
     "notStrictEqual",
     "throws"
-  ]
+  ],
+  "globals": {
+    "console": true,
+    "describe": false,
+    "it": false
+  }
 }
