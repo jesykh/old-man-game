@@ -13,10 +13,16 @@ define([
       .controls();
 
     Q.sheetPromise = function(sheetName, fileName) {
-      var deferred = Promise.defer();
       var args = arguments;
+      return Q.loadPromise(fileName)
+        .then(function() {
+          Q.sheet.apply(Q, args);
+        });
+    };
+
+    Q.loadPromise = function(fileName) {
+      var deferred = Promise.defer();
       Q.load(fileName, function() {
-        Q.sheet.apply(Q, args);
         deferred.resolve();
       });
 
