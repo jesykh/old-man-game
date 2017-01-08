@@ -1,6 +1,6 @@
 define([
   'q',
-  'sprites/player',
+  'require-promise!sprites/player',
   'sprites/enemy',
   'scenes/asset_loader',
   'json!scenes/levels_config.json',

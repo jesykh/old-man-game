@@ -1,13 +1,20 @@
 define([
-  'assets/tile/sprites/player',
-  'sprites/bullet',
-  'q'
+  'require-promise!sprites/bullet',
+  'q',
+  'promise'
 ], function(
-  PlayerLoader,
   Bullet,
-  Q
+  Q,
+  Promise
 ) {
-  Q.animations(PlayerLoader.getName(), {
+  var ANIMATION_NAME = 'whatever_else';
+  var SHEET_NAME = 'player';
+  var SHEET_PROPERTIES = {
+    tilew: 24, tileh: 49
+  };
+  var SHEET_FILENAME = 'player_sheet.png';
+
+  Q.animations(ANIMATION_NAME, {
     run_right: {
       frames: [1]
     },
@@ -25,8 +32,8 @@ define([
   Q.Sprite.extend("Player", {
     init: function(p) {
       this._super(p, {
-        sprite: PlayerLoader.getName(),
-        sheet: PlayerLoader.getName()
+        sprite: ANIMATION_NAME,
+        sheet: SHEET_NAME
       });
       this.add('2d, platformerControls, animation');
 
@@ -72,5 +79,12 @@ define([
     }
   });
 
-  return Q.Player;
+  var deferred = Promise.defer();
+
+  Q.sheetPromise(SHEET_NAME, SHEET_FILENAME, SHEET_PROPERTIES)
+    .then(function() {
+      deferred.resolve(Q.Player);
+    });
+
+  return deferred.promise;
 });
