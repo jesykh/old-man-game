@@ -6,7 +6,7 @@ define([
     Promise
   ) {
     var Q = quintus({ development: true })
-      .include("Sprites, Scenes, Input, 2D, UI, Anim")
+      .include('Sprites, Scenes, Input, 2D, UI, Anim')
       .setup({
         maximize: true
       })
@@ -22,6 +22,12 @@ define([
 
     Q.loadPromise = function(fileName) {
       var deferred = Promise.defer();
+
+      if (Q.assets[fileName]) {
+        deferred.resolve();
+        return;
+      }
+
       Q.load(fileName, function() {
         deferred.resolve();
       });

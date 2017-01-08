@@ -17,8 +17,8 @@
       }
     ],
     "collisionLayer": {
-      "scheme": "level00",
-      "sprite": "floor"
+      "scheme": "level00.json",
+      "tileLayer": "FloorTileLayer"
     }
   }
 }

@@ -1,14 +1,14 @@
 define([
   'q',
-  'assets/loader'
+  'promise'
 ], function(
   Q,
-  AssetsLoader
+  Promise
 ) {
   var ASSET_FILENAME = 'enemy_sheet.png';
   var ASSET_LABEL = 'enemy';
 
-  Q.Sprite.extend("Enemy", {
+  Q.Sprite.extend('Enemy', {
     init: function(p) {
       this._super(p, {
         sheet: 'enemy', vx: 100
@@ -17,13 +17,13 @@ define([
     }
   });
 
-  var createSheet = function createSheet() {
-    Q.sheet(ASSET_LABEL, ASSET_FILENAME, {
-      tilew: 30, tileh: 24
-    });
-  };
+  var deferred = Promise.defer();
 
-  AssetsLoader.waitUntilLoaded(ASSET_FILENAME).then(createSheet);
+  Q.sheetPromise(ASSET_LABEL, ASSET_FILENAME, {
+    tilew: 30, tileh: 24
+  }).then(function() {
+    deferred.resolve(Q.Enemy);
+  });
 
-  return Q.Enemy;
+  return deferred.promise;
 });
