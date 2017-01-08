@@ -6,6 +6,7 @@ require.config({
     'promise': '../bower_components/q/q',
     'text': '../bower_components/requirejs-plugins/lib/text',
     'json': '../bower_components/requirejs-plugins/src/json',
+    'require-promise': '../bower_components/requirejs-promise/requirejs-promise'
   },
   shim: {
     'quintus': {
